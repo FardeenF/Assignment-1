@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("w") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.Play("Player_Jump");
         }
 
         if(rb.position.y < -5.5)
@@ -45,13 +46,26 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey("d") || Input.GetKey("right"))
         {
             rb.velocity = new Vector2(2, rb.velocity.y);
+
+            if(isGrounded)
+                anim.Play("Player_Walk");
+
+            sprite.flipX = false;
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb.velocity = new Vector2(-2, rb.velocity.y);
+
+            if (isGrounded)
+                anim.Play("Player_Walk");
+
+            sprite.flipX = true;
         }
         else
         {
+            if (isGrounded)
+                anim.Play("Player_Idle");
+
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
@@ -62,6 +76,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             isGrounded = false;
+            anim.Play("Player_Jump");
         }
     }
 
