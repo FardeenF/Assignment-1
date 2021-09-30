@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Input.GetKey("d") || Input.GetKey("right"))
+        if(Input.GetKey("d"))
         {
             rb.velocity = new Vector2(2, rb.velocity.y);
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
             sprite.flipX = false;
         }
-        else if (Input.GetKey("a") || Input.GetKey("left"))
+        else if (Input.GetKey("a"))
         {
             rb.velocity = new Vector2(-2, rb.velocity.y);
 
