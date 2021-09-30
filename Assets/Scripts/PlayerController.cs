@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprite;
 
+    public GameObject spawnPoint;
     public float jumpForce = 5.0f;
 
     //[SerializeField]
@@ -30,6 +31,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("w") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if(rb.position.y < -5.5)
+        {
+            rb.position = new Vector2(spawnPoint.transform.position.x, spawnPoint.transform.position.y);
+            rb.velocity = new Vector2(0, 0);
         }
     }
 
@@ -59,7 +66,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        
+    }
 
 
 
