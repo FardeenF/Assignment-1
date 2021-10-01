@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField]
     public Transform groundCheck;
 
-    bool isGrounded;
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
