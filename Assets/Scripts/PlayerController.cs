@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnPoint;
     public float jumpForce = 5.0f;
 
-    //[SerializeField]
     public Transform groundCheck;
 
     private bool isGrounded;
+
+    [DllImport("Plugin Exercise")]
+    private static extern float AddScale(float x);
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
 
+        
+
+        transform.localScale = new Vector3(AddScale(1.0f), AddScale(1.0f));
     }
 
     // Update is called once per frame
