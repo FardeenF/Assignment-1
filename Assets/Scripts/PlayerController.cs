@@ -16,9 +16,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
 
-    [DllImport("Plugin Exercise")]
-    private static extern float AddScale(float x);
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +23,6 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-
-        
-
-        transform.localScale = new Vector3(AddScale(1.0f), AddScale(1.0f));
     }
 
     // Update is called once per frame
