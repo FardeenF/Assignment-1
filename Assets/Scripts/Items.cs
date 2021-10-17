@@ -12,6 +12,8 @@ public class Items : MonoBehaviour
     public bool isClicked = false;
     private LevelEditor editor;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,13 @@ public class Items : MonoBehaviour
         editor = GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelEditor>();
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            quanText.text = quantity.ToString();
+    }
+
+
     public void ButtonClick()
     {
         if (quantity > 0)
@@ -34,4 +42,6 @@ public class Items : MonoBehaviour
             editor.currentSelect = ID;
         }
     }
+
+  
 }

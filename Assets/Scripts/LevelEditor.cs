@@ -10,7 +10,7 @@ public class LevelEditor : MonoBehaviour
     public GameObject[] Prefabs;
     public GameObject[] ItemImage;
     public int currentSelect;
-    
+    public GameObject currentBlock;
 
 
     private void Update()
@@ -21,8 +21,20 @@ public class LevelEditor : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Buttons[currentSelect].isClicked == true)
         {
             Buttons[currentSelect].isClicked = false;
-            Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
+            currentBlock = Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && currentBlock != null)
+        {
+            currentBlock.SetActive(false);
+            Buttons[currentSelect].quantity++;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && currentBlock != null)
+        {
+            currentBlock.SetActive(true);
+            Buttons[currentSelect].quantity--;
         }
     }
 }
