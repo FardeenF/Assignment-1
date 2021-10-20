@@ -14,6 +14,15 @@ public class ItemDeleter : MonoBehaviour
         editor = GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelEditor>();
     }
 
+    public void Update()
+    {
+        if (editor.Buttons[ID].quantity >= editor.Buttons[ID].limit)
+        {
+            editor.Buttons[ID].quantity = editor.Buttons[ID].limit;
+        }
+        editor.Buttons[2].quanText.text = editor.Buttons[2].quantity.ToString();
+    }
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
@@ -23,7 +32,7 @@ public class ItemDeleter : MonoBehaviour
             Destroy(this.gameObject);
             editor.Buttons[ID].quantity++;
             editor.Buttons[ID].quanText.text = editor.Buttons[ID].quantity.ToString();
-
+            
 
         }
     }

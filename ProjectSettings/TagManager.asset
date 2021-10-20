@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Manager
   - ItemImage
+  - Danger
+  - Jump
+  - Platform
   layers:
   - Default
   - TransparentFX

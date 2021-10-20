@@ -477,6 +477,7 @@ MonoBehaviour:
   quantity: 50
   quanText: {fileID: 793149436}
   isClicked: 0
+  limit: 49
 --- !u!114 &220797294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +965,58 @@ MonoBehaviour:
   - {fileID: 7110122514036234364, guid: 0810d01fb0618554f90d5e7a6b78263b, type: 3}
   - {fileID: 4120181226063339136, guid: e1729f020f162e843bf1f6c1f6a19eda, type: 3}
   currentSelect: 0
-  currentBlock: {fileID: 0}
+  currentBlock:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  counter: 0
 --- !u!4 &377630244
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,6 +1968,7 @@ MonoBehaviour:
   quantity: 100
   quanText: {fileID: 684651218}
   isClicked: 0
+  limit: 99
 --- !u!114 &716135429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4356,6 +4409,7 @@ MonoBehaviour:
   quantity: 50
   quanText: {fileID: 252027430}
   isClicked: 0
+  limit: 49
 --- !u!114 &1349960126
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,8 +10,9 @@ public class LevelEditor : MonoBehaviour
     public GameObject[] Prefabs;
     public GameObject[] ItemImage;
     public int currentSelect;
-    public GameObject currentBlock;
-
+    public GameObject[] currentBlock;
+    public int counter = 0;
+    
 
     private void Update()
     {
@@ -20,21 +21,53 @@ public class LevelEditor : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && Buttons[currentSelect].isClicked == true)
         {
+            
             Buttons[currentSelect].isClicked = false;
-            currentBlock = Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
+            currentBlock[counter] = Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
+            counter++;
         }
-        
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && currentBlock != null)
+
+
+        RemoveBlock();
+        AddBlock();
+    }
+
+
+    void RemoveBlock()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && currentBlock != null && counter <= currentBlock.Length && counter > 0)
         {
-            currentBlock.SetActive(false);
+            
+            currentBlock[counter - 1].SetActive(false);
+            counter--;
+            if (currentBlock[counter].gameObject.tag == "Platform")
+                currentSelect = 0;
+            else if (currentBlock[counter].gameObject.tag == "Jump")
+                currentSelect = 1;
+            else if (currentBlock[counter].gameObject.tag == "Danger")
+                currentSelect = 2;
+
             Buttons[currentSelect].quantity++;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && currentBlock != null)
+    }
+
+    void AddBlock()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow) && currentBlock[counter] != null && counter < currentBlock.Length)
         {
-            currentBlock.SetActive(true);
+            currentBlock[counter].SetActive(true);
+            
+            if (currentBlock[counter].gameObject.tag == "Platform")
+                currentSelect = 0;
+            else if (currentBlock[counter].gameObject.tag == "Jump")
+                currentSelect = 1;
+            else if (currentBlock[counter].gameObject.tag == "Danger")
+                currentSelect = 2;
+
             Buttons[currentSelect].quantity--;
+            counter++;
         }
     }
 }

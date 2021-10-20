@@ -11,6 +11,7 @@ public class Items : MonoBehaviour
     public Text quanText;
     public bool isClicked = false;
     private LevelEditor editor;
+    public int limit = 0;
 
     
 
@@ -31,6 +32,8 @@ public class Items : MonoBehaviour
 
     public void ButtonClick()
     {
+        editor.currentSelect = this.gameObject.GetComponent<Items>().ID;
+
         if (quantity > 0)
         {
             Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -40,6 +43,7 @@ public class Items : MonoBehaviour
             quantity--;
             quanText.text = quantity.ToString();
             editor.currentSelect = ID;
+            
         }
     }
 
