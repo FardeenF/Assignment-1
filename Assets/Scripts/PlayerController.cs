@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using System.Runtime.InteropServices;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     private bool isGrounded;
+
+    public static event Action jumpPerformed;
 
 
     // Start is called before the first frame update
@@ -32,9 +35,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             anim.Play("Player_Jump");
+
+            #region observer
+            jumpPerformed?.Invoke();
+            #endregion
         }
 
-        if(rb.position.y < -5.5)
+        if (rb.position.y < -5.5)
         {
             rb.position = new Vector2(spawnPoint.transform.position.x, spawnPoint.transform.position.y);
             rb.velocity = new Vector2(0, 0);

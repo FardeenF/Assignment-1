@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LevelEditor : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class LevelEditor : MonoBehaviour
     public int currentSelect;
     public GameObject[] currentBlock;
     public int counter = 0;
-    
+
+    public static event Action placeBlock;
+
 
     private void Update()
     {
@@ -21,7 +24,10 @@ public class LevelEditor : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && Buttons[currentSelect].isClicked == true)
         {
-            
+            #region observer
+            placeBlock?.Invoke();
+            #endregion
+
             Buttons[currentSelect].isClicked = false;
             currentBlock[counter] = Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
@@ -39,7 +45,11 @@ public class LevelEditor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) && currentBlock != null && counter <= currentBlock.Length && counter > 0)
         {
-            
+            if (currentBlock[counter - 1] == null)
+            {
+                counter--;
+            }
+
             currentBlock[counter - 1].SetActive(false);
             counter--;
             if (currentBlock[counter].gameObject.tag == "Platform")
@@ -57,8 +67,14 @@ public class LevelEditor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow) && currentBlock[counter] != null && counter < currentBlock.Length)
         {
+            //if (currentBlock[counter + 1] == null)
+            //{
+            //    counter++;
+            //}
+
             currentBlock[counter].SetActive(true);
-            
+            //counter++;
+
             if (currentBlock[counter].gameObject.tag == "Platform")
                 currentSelect = 0;
             else if (currentBlock[counter].gameObject.tag == "Jump")
@@ -67,6 +83,11 @@ public class LevelEditor : MonoBehaviour
                 currentSelect = 2;
 
             Buttons[currentSelect].quantity--;
+
+            if (currentBlock[counter + 1] == null)
+            {
+                counter++;
+            }
             counter++;
         }
     }

@@ -30,6 +30,7 @@ public class ItemDeleter : MonoBehaviour
 
 
             Destroy(this.gameObject);
+            //this.gameObject.SetActive(false);
             editor.Buttons[ID].quantity++;
             editor.Buttons[ID].quanText.text = editor.Buttons[ID].quantity.ToString();
             
