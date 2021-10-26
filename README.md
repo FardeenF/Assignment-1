@@ -1,3 +1,6 @@
+DISCLAIMER: BUILD FOR ASSIGNMENT 2 IS A WEBGL LINK!
+https://fardeenf.github.io/Game-Engine-Assignment-2-Build/
+
 References/Controls:
 Assignment 2:
 Selected Option - 
