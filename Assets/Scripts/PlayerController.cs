@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             #endregion
         }
 
-        if (rb.position.y < -5.5)
+        if (rb.position.y < -20.0f)
         {
             rb.position = new Vector2(spawnPoint.transform.position.x, spawnPoint.transform.position.y);
             rb.velocity = new Vector2(0, 0);

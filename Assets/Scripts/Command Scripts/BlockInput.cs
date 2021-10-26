@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputPlane : MonoBehaviour
+public class BlockInput : MonoBehaviour
 {
     public ActiveButton buttonCheck;
 
@@ -17,8 +17,6 @@ public class InputPlane : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //maincam = Camera.main;
-
         buttonCheck.GetComponent<ActiveButton>();
     }
 
@@ -28,12 +26,10 @@ public class InputPlane : MonoBehaviour
         if (buttonCheck.isPlatformActive)
         {
             activePrefab = platformPrefab;
-            //Debug.Log("Active Cube");
         }
         else if (buttonCheck.isJumpPadActive)
         {
             activePrefab = jumpPadPrefab;
-            //Debug.Log("Active Jump");
         }
         else if (buttonCheck.isHazardActive)
         {
@@ -49,20 +45,15 @@ public class InputPlane : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && buttonCheck.isPlatformActive)
         {
-            
+
             Color c = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
-            //CubePlacer.PlaceCube(hitInfo.point, c, cubePrefab);
 
             ICommand command = new PlaceCubeCommand(worldSpacePos, c, platformPrefab);
             CommandInvoker.AddCommand(command);
 
-            //CubePlace cube = new CubePlace();
-            //cube.PlaceShape(hitInfo.point, c, cubePrefab);
             shapesPlaced++;
-            //Debug.Log("Shapes Placed: " + shapesPlaced);
 
             buttonCheck.isPlatformActive = false;
-            //Debug.Log("Deactivated");
         }
 
 
@@ -70,18 +61,13 @@ public class InputPlane : MonoBehaviour
         {
 
             Color c = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
-            //CubePlacer.PlaceCube(hitInfo.point, c, cubePrefab);
 
             ICommand command = new PlaceCubeCommand(worldSpacePos, c, jumpPadPrefab);
             CommandInvoker.AddCommand(command);
 
-            //CubePlace cube = new CubePlace();
-            //cube.PlaceShape(hitInfo.point, c, cubePrefab);
             shapesPlaced++;
-            //Debug.Log("Shapes Placed: " + shapesPlaced);
 
             buttonCheck.isJumpPadActive = false;
-            //Debug.Log("Deactivated");
         }
 
         if (Input.GetMouseButtonDown(0) && buttonCheck.isHazardActive)
@@ -96,24 +82,8 @@ public class InputPlane : MonoBehaviour
             //CubePlace cube = new CubePlace();
             //cube.PlaceShape(hitInfo.point, c, cubePrefab);
             shapesPlaced++;
-            //Debug.Log("Shapes Placed: " + shapesPlaced);
 
             buttonCheck.isHazardActive = false;
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            
-            Color c = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
-
-            ICommand command2 = new PlaceCubeCommand(worldSpacePos, c, hazardPrefab);
-            CommandInvoker.AddCommand(command2);
-
-            //CapsulePlace capsule = new CapsulePlace();
-            //capsule.PlaceShape(hitInfo2.point, c, capsulePrefab);
-            shapesPlaced++;
-            Debug.Log("Shapes Placed: " + shapesPlaced);
-            
         }
 
     }

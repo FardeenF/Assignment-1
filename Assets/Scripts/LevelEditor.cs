@@ -29,7 +29,7 @@ public class LevelEditor : MonoBehaviour
             #endregion
 
             Buttons[currentSelect].isClicked = false;
-            currentBlock[counter] = Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
+            currentBlock[counter] = null; //Instantiate(Prefabs[currentSelect], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
             Destroy(GameObject.FindGameObjectWithTag("ItemImage"));
             counter++;
         }

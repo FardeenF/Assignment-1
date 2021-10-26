@@ -8,26 +8,20 @@ public class Items : MonoBehaviour
 {
     public int ID;
     public int quantity;
-    public Text quanText;
+    //public Text quanText;
     public bool isClicked = false;
     private LevelEditor editor;
     public int limit = 0;
-
-    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        quanText.text = quantity.ToString();
+
         editor = GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelEditor>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-            quanText.text = quantity.ToString();
-    }
+
 
 
     public void ButtonClick()
@@ -41,7 +35,6 @@ public class Items : MonoBehaviour
             Instantiate(editor.ItemImage[ID], new Vector3(worldSpacePos.x, worldSpacePos.y, 0.0f), Quaternion.identity);
             isClicked = true;
             quantity--;
-            quanText.text = quantity.ToString();
             editor.currentSelect = ID;
             
         }
