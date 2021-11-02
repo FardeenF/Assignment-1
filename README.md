@@ -8,6 +8,7 @@ The game is called "Pumpkin Man's Platform Builder". It is a game used to create
 ![shooting projectile](https://github.com/FardeenF/Assignment-1/blob/main/Images/A3%20Shooting.PNG?raw=true)
 
 ## Video Presentation
+`Click preview picture to jump to video.`
 [![Video Link](https://img.youtube.com/vi/MdfjxL3YeRA/hqdefault.jpg)](https://youtu.be/MdfjxL3YeRA)
 
 ## UML Diagram
