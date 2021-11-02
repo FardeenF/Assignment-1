@@ -2,18 +2,18 @@
 ## Game Description
 The game is called "Pumpkin Man's Platform Builder". It is a game used to create simple platforming levels that include normal platforms, jump pads, and hazardous blocks that send the player to the start of the level. The game also feature to allow the player to shoot beams from his eyes to destroy hazardous blocks.
 
-##Game Screenshots
+## Game Screenshots
 ![main menu](https://github.com/FardeenF/Assignment-1/blob/main/Images/A3%20MainMenu.PNG?raw=true)
 ![tutorial](https://github.com/FardeenF/Assignment-1/blob/main/Images/A3%20Tutorial.PNG?raw=true)
 ![shooting projectile](https://github.com/FardeenF/Assignment-1/blob/main/Images/A3%20Shooting.PNG?raw=true)
 
-##Video Presentation
-https://youtu.be/MdfjxL3YeRA
+## Video Presentation
+[![Video Link](https://img.youtube.com/vi/MdfjxL3YeRA/hqdefault.jpg)](https://youtu.be/MdfjxL3YeRA)
 
-##UML Diagram
+## UML Diagram
+![UML diagram](https://github.com/FardeenF/Assignment-1/blob/main/Images/Assignment%203%20UML%20Diagram.png?raw=true)
 
-
-##References
+## References
 Referenced official Unity page on object pooling for implementation on projectiles using object pooling:
 https://learn.unity.com/tutorial/introduction-to-object-pooling?signup=true
 
