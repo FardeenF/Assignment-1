@@ -12,7 +12,7 @@ public class ProjectilePool : MonoBehaviour
     {
         SharedInstance = this;
     }
-    void Start()
+    void Start() 
     {
         pooledObjects = new List<GameObject>();
         GameObject tmp;
