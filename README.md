@@ -14,6 +14,9 @@ The game is called "Pumpkin Man's Platform Builder". It is a game used to create
 ## UML Diagram
 ![UML diagram](https://github.com/FardeenF/Assignment-1/blob/main/Images/Assignment%203%20UML%20Diagram.png?raw=true)
 
+## Build
+https://fardeenf.github.io/Game-Engine-Assignment-3-Build/
+
 ## References
 Referenced official Unity page on object pooling for implementation on projectiles using object pooling:
 https://learn.unity.com/tutorial/introduction-to-object-pooling?signup=true
