@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     public static event Action jumpPerformed;
+    bool isFlipped = false;
 
 
     // Start is called before the first frame update
@@ -57,7 +58,13 @@ public class PlayerController : MonoBehaviour
             if(isGrounded)
                 anim.Play("Player_Walk");
 
-            sprite.flipX = false;
+            //sprite.flipX = false;
+
+            if(isFlipped)
+            {
+                transform.Rotate(0.0f, -180.0f, 0.0f);
+                isFlipped = false;
+            }
         }
         else if (Input.GetKey("a"))
         {
@@ -66,7 +73,13 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
                 anim.Play("Player_Walk");
 
-            sprite.flipX = true;
+            //sprite.flipX = true;
+
+            if (isFlipped == false)
+            {
+                transform.Rotate(0.0f, 180.0f, 0.0f);
+                isFlipped = true;
+            }
         }
         else
         {
